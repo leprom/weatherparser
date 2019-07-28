@@ -35,8 +35,16 @@ public class Parser {
         if(index==0) {
             Element valueLn = values.get(3);
             boolean isMorning = valueLn.text().contains("Утро");
+            boolean isMidday = valueLn.text().contains("День");
+            boolean isEvening = valueLn.text().contains("Вечер");
+            boolean isNight = valueLn.text().contains("Ночь");
+
             if (isMorning) iterationCount = 3;
+            else if (isMidday) iterationCount = 2;
+            else if (isEvening) iterationCount = 1;
+            else if (isNight) iterationCount = 0;
         }
+
 
         for (int i = 0; i < iterationCount; i++) {
                 Element valueLine = values.get(index + 1);
